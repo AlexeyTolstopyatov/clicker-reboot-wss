@@ -4,14 +4,22 @@ package requirements
 // Provides models of needed start-up configuration
 // files and etc...)
 
-type Postgres struct {
+var EmptyConfigurationString = ""
+
+type DbConfig struct {
+	Host     string `mapstructure:"host"`
+	Port     string `mapstructure:"port"`
 	User     string `mapstructure:"user"`
 	Password string `mapstructure:"password"`
 	Name     string `mapstructure:"name"`
-	Ssl      bool   `mapstructure:"ssl"`
+	Ssl      string `mapstructure:"ssl"`
 }
 
-type Server struct {
+type AppConfig struct {
 	Host string `mapstructure:"host"`
 	Port string `mapstructure:"port"`
+}
+
+type ConfigConvertable interface {
+	ToString() string
 }

@@ -7,8 +7,8 @@ import (
 
 type App struct {
 	Context      *context.Context
-	ServerArgs   *requirements.Server
-	PostgresArgs *requirements.Postgres
+	ServerArgs   *requirements.AppConfig
+	PostgresArgs *requirements.DbConfig
 }
 
 // Instance
@@ -17,8 +17,8 @@ type App struct {
 // function.
 func Instance(
 	ctx *context.Context,
-	serverArgs *requirements.Server,
-	postgresArgs *requirements.Postgres) *App {
+	serverArgs *requirements.AppConfig,
+	postgresArgs *requirements.DbConfig) *App {
 	return &App{
 		Context:      ctx,
 		ServerArgs:   serverArgs,
@@ -32,11 +32,11 @@ func Instance(
 func DefaultInstance(ctx *context.Context) *App {
 	return &App{
 		Context: ctx,
-		ServerArgs: &requirements.Server{
+		ServerArgs: &requirements.AppConfig{
 			Host: "localhost",
 			Port: "5431",
 		},
-		PostgresArgs: &requirements.Postgres{
+		PostgresArgs: &requirements.DbConfig{
 			User:     "postgres",
 			Password: "postgres",
 			Name:     "clickerdb",
@@ -46,5 +46,8 @@ func DefaultInstance(ctx *context.Context) *App {
 }
 
 func (a *App) Run() {
+	// run http adapter,
+	// run ws adapter,
+	// ws adapter -> client instance.
 
 }
