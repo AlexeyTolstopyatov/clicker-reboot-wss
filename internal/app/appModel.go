@@ -37,10 +37,10 @@ func DefaultInstance(ctx *context.Context) *App {
 			Port: "5431",
 		},
 		PostgresArgs: &requirements.DbConfig{
-			User:     "postgres",
-			Password: "postgres",
+			User:     "dbadmin",
+			Password: "dbadmin",
 			Name:     "clickerdb",
-			Ssl:      false,
+			Ssl:      "--verify-ca",
 		},
 	}
 }
