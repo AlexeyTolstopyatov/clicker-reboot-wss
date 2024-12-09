@@ -48,6 +48,6 @@ func DefaultInstance(ctx *context.Context) *App {
 func (a *App) Run() {
 	// run http adapter,
 	// run ws adapter,
-	// ws adapter -> client instance.
+	// ws adapter -> models instance.
 
 }

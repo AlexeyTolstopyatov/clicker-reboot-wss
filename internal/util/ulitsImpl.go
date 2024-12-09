@@ -23,7 +23,7 @@ func ExecuteRepeat(action func() error, attempts int, delay time.Duration) (err 
 }
 
 // SendPostgresError
-// Sends JSON error message to client
+// Sends JSON error message to models
 // or saves information on disk
 func SendPostgresError(err error) error {
 	var pgErr *pgconn.PgError
@@ -38,7 +38,7 @@ func SendPostgresError(err error) error {
 }
 
 // SendServerError
-// Sends JSON error message to client
+// Sends JSON error message to models
 // or saves information on disk
 func SendServerError(context fiber.Ctx, attempts int, err error) error {
 	return context.Status(attempts).JSON(fiber.Map{
